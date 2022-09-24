@@ -11,5 +11,13 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "choqu",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/choqu/feurbot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/choqu/feurbot/issues"
+  },
+  "homepage": "https://github.com/choqu/feurbot#readme"
 }
