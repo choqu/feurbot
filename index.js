@@ -1,16 +1,17 @@
 const {
   Client,
   Collection,
-  Intents
+  Intents,
+  GatewayIntentBits
 } = require('discord.js');
 const config = require('./config.json');
+require('dotenv').config()
+const fs = require('fs');
 
-const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES, Intents.FLAGS.GUILD_MEMBERS],
-});
+const client = new Client({ intents: [Intents.FLAGS.GUILDS]});
 
+const { SlashCommandBuilder } = require('@discordjs/builders')
 const Discord = require('discord.js');
-const db = require("quick.db");
 
 client.discord = Discord;
 client.config = config;
@@ -19,27 +20,28 @@ client.config = config;
 
 
 
-client.on('ready', () => {
+client.on('ready', async () => {
   console.log(`Connecté en tant que ${client.user.tag}!`)
 
   setTimeout(() => {
     client.user.setStatus('online')
-    //client.user.setActivity(`!invite / !stats | ${client.guilds.cache.size} serveurs`, {type: 'WATCHING'})
   const statuses = [
-      () => `!invite / !stats | ${client.guilds.cache.size} serveurs`
+      () => `!stats | ${client.guilds.cache.size} serveurs`,
+      () => `/info | ${client.guilds.cache.size} serveurs`,
+      () => `/invite | ${client.guilds.cache.size} servers`
   ]
   var i = 0
   setInterval(() => {
       client.user.setActivity(statuses[i](), {type: 'WATCHING',})
       i = ++i% statuses.length
-  }, 10000)
+  }, 20000)
 }, 100)
 
-
 })
-let daily = 11;
-let weekly = 125;
-let total = 3138;
+
+let daily = 29;
+let weekly = 180;
+let total = 8763;
 
 setInterval(() => {
   client.channels.cache.get(config.logs).send(`**<:stats:947081893411717130> - Actualisation des statistiques;**
@@ -81,7 +83,8 @@ var feur = [
     "Druplé",
     "La loumpour",
     "Artz",
-    "de neuf"
+    "de neuf",
+    "Si vous êtes une âme charitable, vous pouvez donnez votre avis ? https://forms.gle/eStBCzfTffLW7pMr6 <3"
 ]
 
 var quoi = [
@@ -112,11 +115,36 @@ var quoi = [
     "tfk?",
     "vfq?",
     "vfk?",
-
-
 ]
 
 
+
+client.commands = new Collection();
+const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'));
+
+for (const file of commandFiles) {
+  const command = require(`./commands/${file}`);
+  client.commands.set(command.data.name, command);
+};
+
+
+
+client.on('interactionCreate', async interaction => {
+  if (!interaction.isCommand()) return;
+
+  const command = client.commands.get(interaction.commandName);
+  if (!command) return;
+
+  try {
+    await command.execute(interaction, client, config);
+  } catch (error) {
+    console.error(error);
+    return interaction.reply({
+      content: 'Une erreur s\'est produite durant l\'éxècution de la commande.',
+      ephemeral: true
+    });
+  };
+});
 
 
 
@@ -138,7 +166,7 @@ client.on('messageCreate', async message => {
           daily += 1
           weekly += 1
           total += 1
-          message.client.channels.cache.get(config.stats).send("`" + message.author.username + ", ID:" + message.author.id + "` **a dit** : " + message.content+"\n\n**Dans le salon** : `" + message.channel.name + "` **ID** : `" + message.channel.id + "`\nDu serveur : `" + message.guild.name + "` **ID** : `" + message.guild.id +"`.\n-\n")
+          message.client.channels.cache.get(config.logs).send("`" + message.author.username + ", ID:" + message.author.id + "` **a dit** : " + message.content+"\n\n**Dans le salon** : `" + message.channel.name + "` **ID** : `" + message.channel.id + "`\nDu serveur : `" + message.guild.name + "` **ID** : `" + message.guild.id +"`.\n-\n")
 
         }
       }
@@ -156,7 +184,9 @@ client.on('messageCreate', async message => {
         Le nombre de **feur** que j'ai envoyé cette semaine : \`${weekly}\`.
         Le nombre de **feur** que j'ai envoyé au total : \`${total}\`.
         
-        *Attention, ces données peuvent changer du jours au lendemain. Elles ne sont pas constantes !*`)
+        *Attention, ces données peuvent changer du jours au lendemain. Elles ne sont pas constantes !*
+        
+        [Donner un avis sur le bot ❤️](https://forms.gle/eStBCzfTffLW7pMr6)`)
         .setTimestamp()
         .setColor("#0db19e")
         .setFooter({text: 'On peut le dire, je suis drôle.'})
@@ -165,38 +195,8 @@ client.on('messageCreate', async message => {
           console.log(error)
         });
       }
-  
-
-      if (message.content.match(`<@!?${client.user.id}>`)){
-        message.channel.send(`J'ai toujours su que tu étais adopté`).catch(error => {
-          console.log(error)
-        });
-      }
-    
-
-      if (message.content.startsWith('!invite')){
-          message.channel.send('Voici mon lien d\'invitation: https://discord.com/oauth2/authorize?client_id=966331391354748928&permissions=8&scope=bot').catch(error => {
-            console.log(error)
-          });
-      }
-
-
-      if (message.content.includes('UwU')){
-        message.channel.send(`arrête avec tes UwU t'as crus on était à la gay pride ?`).catch(error => {
-          console.log(error)
-        });
-      };
-
-
-
-
-
-
-
-  
 
 })
-
 
 
 

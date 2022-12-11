@@ -1,5 +1,6 @@
 {
     "token": "TOKEN",
     "logs": "SALON LOGS",
-    "stats": "SALON STATS"
+    "prefix": "!",
+    "clientid": "ID DU BOT"
 }

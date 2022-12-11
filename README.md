@@ -47,8 +47,11 @@ Après avoir clone le projet, rendez-vous dans config.json pour configurer le bo
 
 ### Démarrer l'application
 
+Avant de démarrer le bot, assurez vous d'avoir ajouter les slashcommands dans l'API ! vous pouvez effectuer cela avec la commande `npm deploy`.
+
+Pour lancer le bot :
 ```bash
-node index.js
+npm start
 ```
 
 ## Contribuer

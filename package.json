@@ -1,23 +1,22 @@
 {
-  "dependencies": {
-    "discord.js": "^13.9.1",
-    "quick.db": "^9.0.5"
-  },
-  "name": "feur",
+  "name": "feurbot",
   "version": "0.0.6",
-  "description": "Bot qui répond feur aux \"quoi\".",
+  "description": "Un bot discord en javascript consitant à faire la blague du 'quoi' - 'feur' (coiffeur)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "deploy": "node deploy-commands.js"
   },
   "author": "choqu",
   "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/choqu/feurbot.git"
-  },
-  "bugs": {
-    "url": "https://github.com/choqu/feurbot/issues"
-  },
-  "homepage": "https://github.com/choqu/feurbot#readme"
+  "dependencies": {
+    "@discordjs/builders": "^1.3.0",
+    "@discordjs/rest": "^1.3.0",
+    "better-sqlite3": "^7.5.3",
+    "discord-api-types": "^0.37.16",
+    "discord.js": "^12.5.3",
+    "dotenv": "^16.0.3",
+    "fs": "0.0.1-security"
+  }
 }
