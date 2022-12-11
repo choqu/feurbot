@@ -7,8 +7,7 @@ Juste pour énerver les gens.
 
 * [Conditions](#Conditions)
 * [Débuter](#debuter)
-* [Features & Commands](#features--commands)
-* [Common errors](#common-errors)
+* [Installation](#installation)
 * [Contributing](#contributing)
 * [Author](#author)
 * [License](#license)
@@ -22,7 +21,7 @@ Juste pour énerver les gens.
 
 Tout d'abord, vérifiez que vous avez tout ce dont il y a besoin d'installer sur votre machine.
 
-### Installation
+### installation
 
 ```bash
 # Cloner le dossier
