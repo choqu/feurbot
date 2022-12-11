@@ -8,9 +8,9 @@ Juste pour énerver les gens.
 * [Conditions](#Conditions)
 * [Débuter](#debuter)
 * [Installation](#installation)
-* [Contributing](#contributing)
-* [Author](#author)
-* [License](#license)
+* [Configuration](#Configuration)
+* [Author](#Auteur)
+* [License](#License)
 
 ## Conditions
 
