@@ -3,7 +3,7 @@
 C'est un bot discord très simple qui fut réalisé en même pas 1h, son but ? répondre à tous les "quoi" qu'il croise.
 Juste pour énerver les gens.
 
-## Table of content
+## Sommaire
 
 * [Conditions](#Conditions)
 * [Débuter](#debuter)
