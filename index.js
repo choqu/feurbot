@@ -39,9 +39,9 @@ client.on('ready', async () => {
 
 })
 
-let daily = 29;
-let weekly = 180;
-let total = 8763;
+let daily = 0; // nombre de "feurs" dans la journée
+let weekly = 0; // nombre de "feurs" dans la semaine
+let total = 0; // nombre de "feurs" au total
 
 setInterval(() => {
   client.channels.cache.get(config.logs).send(`**<:stats:947081893411717130> - Actualisation des statistiques;**
@@ -184,9 +184,7 @@ client.on('messageCreate', async message => {
         Le nombre de **feur** que j'ai envoyé cette semaine : \`${weekly}\`.
         Le nombre de **feur** que j'ai envoyé au total : \`${total}\`.
         
-        *Attention, ces données peuvent changer du jours au lendemain. Elles ne sont pas constantes !*
-        
-        [Donner un avis sur le bot ❤️](https://forms.gle/eStBCzfTffLW7pMr6)`)
+        *Attention, ces données peuvent changer du jours au lendemain. Elles ne sont pas constantes !*`)
         .setTimestamp()
         .setColor("#0db19e")
         .setFooter({text: 'On peut le dire, je suis drôle.'})
