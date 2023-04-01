@@ -20,7 +20,7 @@ const {
 
         **<:category_red:982998892046077962>** Si voous souhaitez m'inviter sur l'un de vos serveur, vous pouvez m'ajouter via la commande \`!invite\`, ou alors directement sur mon profil.
 
-        **<:discovery:947080578874884116>** Enfin, pour en terminer, le bot est en amélioration constante (même si vous ne le constatez pas), si vous avez des idées d'amélioration vous pouvez vous rendre [ici](https://forms.gle/eStBCzfTffLW7pMr6) 
+        **<:discovery:947080578874884116>** Enfin, pour en terminer, le bot est en amélioration constante (même si vous ne le constatez pas). Si vous avez des suggestions, n'hésitez pas à les faire sur le [serveur de support](https://discord.gg/fzjPGUar8M) ou sur le [serveur de développement](https://discord.gg/2Z3Z5Z2Z2Z). 
         
         `)        .setFooter({
             text: "Drôle non ? C'est français."
