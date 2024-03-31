@@ -9,7 +9,7 @@ Juste pour énerver les gens.
 * [Débuter](#debuter)
 * [Installation](#installation)
 * [Configuration](#Configuration)
-* [Author](#Auteur)
+* [Auteur](#Auteur)
 * [License](#License)
 
 ## Conditions
@@ -42,7 +42,7 @@ Activez `Server Members Intent` et `Message Content Intent` qui se trouvent sous
 
 ### Configuration
 
-Après avoir clone le projet, rendez-vous dans config.json pour configurer le bot comme bon vous semble !
+Après avoir cloné le projet, rendez-vous dans config.json pour configurer le bot comme bon vous semble !
 
 ### Démarrer l'application
 
@@ -52,10 +52,6 @@ Pour lancer le bot :
 ```bash
 npm start
 ```
-
-## Contribuer
-
-Vous êtes le bienvenue de contribuer au projet en le téléchargeant par exemple !
 
 ## Auteur
 
